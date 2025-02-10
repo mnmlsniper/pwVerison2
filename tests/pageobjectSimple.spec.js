@@ -7,7 +7,12 @@ import { YourfeedPage } from '../src/pages/yourfeedPage';
 
 const URL_UI = 'https://realworld.qa.guru/';
 
-test.describe('Авторизация', () => {
+test.describe('Авторизация', {
+    annotation: [
+      { type: 'issue', description: 'https://github.com/microsoft/playwright/issues/23180' },
+      { type: 'performance', description: 'very slow test!' },
+    ],
+  }, () => {
 	test('Пользователь может авторизоваться используя логин пароль', async ({
 		page,
 	}) => {
