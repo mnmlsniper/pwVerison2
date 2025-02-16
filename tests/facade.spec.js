@@ -3,8 +3,6 @@ import { test, expect } from '@playwright/test';
 import { MainPage, RegisterPage, YourfeedPage } from '../src/pages/index';
 import { ArticleBuilder, UserBuilder } from '../src/helpers/builder/index';
 
-const URL_UI = 'https://realworld.qa.guru/';
-
 test.describe('Шаблон', () => {
 	test.beforeEach(async ({ page }) => {
 		const mainPage = new MainPage(page);
@@ -16,7 +14,7 @@ test.describe('Шаблон', () => {
 			.addPassword(11)
 			.generate();
 
-		await mainPage.open(URL_UI);
+		await mainPage.open();
 		await mainPage.gotoRegister();
 		await registerPage.register(
 			userBuilder.username,
