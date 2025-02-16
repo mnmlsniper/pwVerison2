@@ -1,18 +1,19 @@
-import { test, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
+import { test } from '../src/helpers/fixture/index';
 import { faker } from '@faker-js/faker';
 import { MainPage } from '../src/pages/mainPage';
 import { RegisterPage } from '../src/pages/registerPage';
 import { YourfeedPage } from '../src/pages/yourfeedPage';
+test.use({ storageState: { cookies: [], origins: [] } });
 
 // todo вынести в отдельное место
-const URL_UI = 'https://realworld.qa.guru/';
 
 test.describe('Шаблон', () => {
-	test.beforeEach(async ({ page }) => {
+	test.beforeEach(async ({ openMain }) => {
 		//todo подготовка состояния
-		const mainPage = new MainPage(page);
-		const registerPage = new RegisterPage(page);
-		const yourfeedPage = new YourfeedPage(page);
+		const mainPage = new MainPage(openMain);
+		const registerPage = new RegisterPage(openMain);
+		const yourfeedPage = new YourfeedPage(openMain);
 
 		//todo подготовка данных
 		const user = {
@@ -20,7 +21,7 @@ test.describe('Шаблон', () => {
 			password: faker.internet.password({ length: 10 }),
 			username: faker.person.firstName(),
 		};
-		await mainPage.open(URL_UI);
+		//await mainPage.open();
 		await mainPage.gotoRegister();
 		await registerPage.register(user.username, user.email, user.password);
 		await expect(yourfeedPage.profileNameField).toBeVisible();
@@ -33,3 +34,8 @@ test.describe('Шаблон', () => {
 		await expect(yourfeedPage.profileNameField).toBeVisible();
 	});
 });
+
+/* setup - chrome
+	mozilla
+	safari
+*/

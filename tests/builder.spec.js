@@ -5,8 +5,7 @@ import { RegisterPage } from '../src/pages/registerPage';
 import { YourfeedPage } from '../src/pages/yourfeedPage';
 import { UserBuilder } from '../src/helpers/builder/user.builder';
 
-const URL_UI = 'https://realworld.qa.guru/';
-
+test.use({ storageState: { cookies: [], origins: [] } });
 test.describe('Шаблон', () => {
 	test.beforeEach(async ({ page }) => {
 		const mainPage = new MainPage(page);
@@ -18,7 +17,7 @@ test.describe('Шаблон', () => {
 			.addPassword(11)
 			.generate();
 
-		await mainPage.open(URL_UI);
+		await mainPage.open();
 		await mainPage.gotoRegister();
 		await registerPage.register(
 			userBuilder.username,

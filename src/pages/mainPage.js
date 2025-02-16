@@ -4,14 +4,22 @@ export class MainPage {
 	constructor(page) {
 		this.page = page;
 		this.signupButton = page.getByRole('link', { name: 'Sign up' });
+		this.signinButton = page.getByRole('link', { name: 'Login' });
 	}
 	// todo
+
+	async gotoLogin() {
+		await test.step('Перейти на страницу авторизации', async () => {
+			await this.signinButton.click();
+		});
+	}
 	async gotoRegister() {
 		await test.step('Перейти на страницу регистрацию', async () => {
 			await this.signupButton.click();
 		});
 	}
-	async open(url) {
-		await this.page.goto(url);
+	async open() {
+		//todo
+		await this.page.goto('.');
 	}
 }
