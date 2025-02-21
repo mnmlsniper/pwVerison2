@@ -1,8 +1,14 @@
 import { test as base, expect } from '@playwright/test';
 import { MainPage, RegisterPage, YourfeedPage } from '../../pages/index';
 import { UserBuilder } from '../builder/index';
+import { App } from '../../pagesV2/app.page';
 
 export const test = base.extend({
+	webApp: async ({ page }, use) => {
+		const app = new App(page);
+		await app.main.open();
+		await use(app);
+	},
 	//todo
 	openMain: async ({ page }, use) => {
 		const mainPage = new MainPage(page);

@@ -9,3 +9,4 @@ allure-results
 allure-report
 .allure
 .DS_Store
+playwright/.auth/userFile.json
