@@ -6,8 +6,8 @@ test.use({ storageState: { cookies: [], origins: [] } });
 let newUser;
 // todo вынести в отдельное место
 
-test.describe.only('Page Object middle V2', () => {
-    // web, 
+test.describe('Page Object middle V2', () => {
+	// web,
 	test('Пользователь может зарегистрировать POv21', async ({ webApp }) => {
 		newUser = new UserBuilder()
 			.addEmail()
