@@ -10,7 +10,7 @@ let token;
 			baseUrl: URL,
 		}); */
 
-test.describe.only('Challenge', () => {
+test.describe('Challenge', () => {
 	test.beforeEach(async ({ request }) => {
 		const response = await request.post(`${URL}challenger`);
 		const headers = await response.headers();
