@@ -10,7 +10,7 @@ let token;
             baseUrl: URL,
         }); */
 
-test.describe.only('Challenge', () => {
+test.describe('Challenge', () => {
 	test('get challenges', async () => {
 		const res = await axios.post(`${URL}challenger`);
 		expect(res.data).toBe('');
