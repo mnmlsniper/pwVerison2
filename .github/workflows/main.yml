@@ -20,8 +20,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      # устанавливаем пакеты node
+      - name: Установить пакеты
+        run: npm i
       # устанавливаем PW
       - name: Установить PW
         run: npx playwright install --with-deps
       - name: Запустить PW
-        run: npx run test
+        run: npm run test
