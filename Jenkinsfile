@@ -6,7 +6,7 @@ pipeline {
         nodejs('NodeJS2290'){
           sh 'npm i'
           sh 'npx playwright install --with-deps'
-          sh 'npm run t'
+          sh 'npx playwright test'
         }
       }      
     }
