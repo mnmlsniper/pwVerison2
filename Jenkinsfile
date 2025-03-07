@@ -10,5 +10,20 @@ pipeline {
         }
       }      
     }
+stage('Allure'){
+  steps{
+    allure(
+      [
+        includePorperties: false,
+        jdk: '',
+        properties: [],
+        reportBuildPolicy: 'ALWAYS',
+        results: [[path: 'allure-report']]
+      ]
+    )
+    
+  }
+}
+    
   }
 }
