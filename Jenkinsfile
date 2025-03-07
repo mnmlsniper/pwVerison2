@@ -14,7 +14,7 @@ stage('Allure'){
   steps{
     allure(
       [
-        includePorperties: false,
+        includeProperties: false,
         jdk: '',
         properties: [],
         reportBuildPolicy: 'ALWAYS',
